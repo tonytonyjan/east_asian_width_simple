@@ -6,9 +6,10 @@ class EastAsianWidthSimple
 
   HEX_DIGIT_REGEXP = /\h/
   PROPERTY_TO_WIDTH_MAP = { A: nil, F: 2, H: 1, N: nil, Na: 1, W: 2 }.freeze
+  DEFAULT_LOOKUP_TABLE_SIZE = 2**21
 
   def initialize(east_asian_width_txt_io)
-    @lookup_table = Array.new(2**21)
+    @lookup_table = Array.new(DEFAULT_LOOKUP_TABLE_SIZE)
     east_asian_width_txt_io.each_line do |line|
       next unless line.start_with?(HEX_DIGIT_REGEXP)
 
