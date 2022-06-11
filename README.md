@@ -36,19 +36,19 @@ eaw.lookup('Ａ'.ord) # => :F
 
 east_asian_width_simple is faster than other pure Ruby implementations. Below is the comparison table of time cost:
 
-| Name                    | Width Calculation | Property Lookup |
-| ----------------------- | ----------------- | --------------- |
-| east_asian_width_simple | 1x                | 1x              |
-| east_asian_width        | 8.78x             | 4.57x           |
-| reline                  | 10.25x            | -               |
-| unicode-display_width   | 4.45x             | -               |
-| unicode-eaw             | -                 | 10.60x          |
-| visual_width            | 2.03x             | -               |
+| Name                                           | Width Calculation | Property Lookup |
+| ---------------------------------------------- | ----------------- | --------------- |
+| east_asian_width_simple                        | 1x                | 1x              |
+| [east_asian_width][east_asian_width]           | 8.78x             | 4.57x           |
+| [reline][reline]                               | 10.25x            | -               |
+| [unicode-display_width][unicode-display_width] | 4.45x             | -               |
+| [unicode-eaw][unicode-eaw]                     | -                 | 10.60x          |
+| [visual_width][visual_width]                   | 2.03x             | -               |
 
 [east_asian_width]: https://github.com/zhangkaizhao/east_asian_width
-[reline]: https://github.com/ruby/reline/blob/master/lib/reline/unicode.rb
+[reline]: https://github.com/ruby/reline
 [unicode-display_width]: https://github.com/janlelis/unicode-display_width
-[unicode]: https://github.com/takahashim/unicode-eaw
+[unicode-eaw]: https://github.com/takahashim/unicode-eaw
 [visual_width]: https://github.com/gfx/visual_width.rb
 
 ```
