@@ -12,12 +12,12 @@ class EastAsianWidthSimple
     east_asian_width_txt_io.each_line do |line|
       next unless line.start_with?(HEX_DIGIT_REGEXP)
 
-      code_point, property = line.split(' ').first.split(';')
-      if code_point.include?('..')
-        first, last = code_point.split('..')
+      codepoint, property = line.split(' ').first.split(';')
+      if codepoint.include?('..')
+        first, last = codepoint.split('..')
         @lookup_table.fill(property.to_sym, first.to_i(16)..last.to_i(16))
       else
-        @lookup_table[code_point.to_i(16)] = property.to_sym
+        @lookup_table[codepoint.to_i(16)] = property.to_sym
       end
     end
   end
