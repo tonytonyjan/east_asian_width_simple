@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = 'east_asian_width_simple'
-  spec.version = '0.0.1'
+  spec.version = '1.0.0'
   spec.authors = ['Weihang Jian']
   spec.email = ['tonytonyjan@gmail.com']
   spec.summary = <<~SUMMARY
