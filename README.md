@@ -1,4 +1,4 @@
-# east_asian_width_simple
+# east_asian_width_simple ![](https://github.com/tonytonyjan/east_asian_width_simple/actions/workflows/ci.yml/badge.svg)
 
 east_asian_width_simple is a Ruby gem that calculates the visual width of strings by parsing and looking up East Asian Width Property Data File, aka [EastAsianWidth.txt](https://www.unicode.org/Public/UCD/latest/ucd/EastAsianWidth.txt), which is defined in [Unicode Standard Annex #11: East Asian Width](https://www.unicode.org/reports/tr11/).
 
