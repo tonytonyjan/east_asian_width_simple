@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
     strings by parsing and looking up East Asian Width Property Data File, \
     aka EastAsianWidth.txt, \
     which is defined in Unicode Standard Annex #11: East Asian Width. \
-    It aims to be time-performant and easy to use.
+    It aims to be time-efficient and easy to use.
   DESCRIPTION
   spec.homepage = 'https://github.com/tonytonyjan/east_asian_width_simple'
   spec.license = 'MIT'

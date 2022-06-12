@@ -2,7 +2,7 @@
 
 east_asian_width_simple is a Ruby gem that calculates the visual width of strings by parsing and looking up East Asian Width Property Data File, aka [EastAsianWidth.txt](https://www.unicode.org/Public/UCD/latest/ucd/EastAsianWidth.txt), which is defined in [Unicode Standard Annex #11: East Asian Width](https://www.unicode.org/reports/tr11/).
 
-It aims to be time-performant and easy to use.
+It aims to be time-efficient and flexible.
 
 ## Installation
 
@@ -18,12 +18,17 @@ Download the latest data file from unicode.org:
 curl https://www.unicode.org/Public/UCD/latest/ucd/EastAsianWidth.txt >EastAsianWidth.txt
 ```
 
+east_asian_width_simple decouples [property data file](https://www.unicode.org/reports/tr41/tr41-28.html#Data11) to be flexible.
+
+Unlike other gems, you update by downloading the latest property file from unicode.org instead of upgrading the gem.
+
 ## Usage
 
 ```ruby
 require 'east_asian_width_simple'
 eaw = EastAsianWidthSimple.new(File.open('EastAsianWidth.txt'))
 eaw.string_width('台灣 No.1') # => 9
+eaw.string_width('No code, no 🐞') # => 14
 
 eaw.lookup_width('a'.ord) # => 1
 eaw.lookup_width('🐞'.ord) # => 2
@@ -36,14 +41,14 @@ eaw.lookup('Ａ'.ord) # => :F
 
 east_asian_width_simple is faster than other pure Ruby implementations. Below is the comparison table of time cost:
 
-| Name                                           | Width Calculation | Property Lookup |
-| ---------------------------------------------- | ----------------- | --------------- |
-| east_asian_width_simple                        | 1x                | 1x              |
-| [east_asian_width][east_asian_width]           | 8.78x             | 4.57x           |
-| [reline][reline]                               | 10.25x            | -               |
-| [unicode-display_width][unicode-display_width] | 4.45x             | -               |
-| [unicode-eaw][unicode-eaw]                     | -                 | 10.60x          |
-| [visual_width][visual_width]                   | 2.03x             | -               |
+| Gem                                                   | Width Calculation | Property Lookup |
+| ----------------------------------------------------- | ----------------- | --------------- |
+| east_asian_width_simple                               | 1x                | 1x              |
+| [east_asian_width][east_asian_width] v0.0.2           | 8.78x             | 4.57x           |
+| [reline][reline] v0.3.1                               | 10.25x            | -               |
+| [unicode-display_width][unicode-display_width] v2.1.0 | 4.45x             | -               |
+| [unicode-eaw][unicode-eaw] v2.2.0                     | -                 | 10.60x          |
+| [visual_width][visual_width] v0.0.6                   | 2.03x             | -               |
 
 [east_asian_width]: https://github.com/zhangkaizhao/east_asian_width
 [reline]: https://github.com/ruby/reline
